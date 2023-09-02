@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#1AA551"> <!-- Puedes definir tu propio color rojo en colors.xml -->
+    android:background="#1AA551">
 
     <TextView
         android:id="@+id/custom_toast_text"
