@@ -9,44 +9,55 @@
         android:id="@+id/tvPregunta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:padding="24dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/botonVerdadero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/boton_verdadero"/>
+            android:layout_gravity="bottom|right"
+            android:text="@string/boton_verdadero"
+            android:drawablePadding="4dp"/>
+
         <Button
             android:id="@+id/botonFalso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/boton_falso"/>
+            android:layout_gravity="bottom|right"
+            android:text="@string/boton_falso"
+            android:drawablePadding="4dp"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <ImageButton
+        <Button
             android:id="@+id/botonAnterior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/anterior"
-            android:contentDescription="@string/boton_anterior" />
+            android:text="@string/boton_anterior"
+            android:layout_gravity="bottom|right"
+            android:drawableLeft="@drawable/anterior"
+            android:drawablePadding="4dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/botonSiguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/siguiente"
-            android:contentDescription="@string/boton_siguiente" />
+            android:text="@string/boton_siguiente"
+            android:layout_gravity="bottom|right"
+            android:drawableRight="@drawable/siguiente"
+            android:drawablePadding="4dp"/>
     </LinearLayout>
-
 </LinearLayout>
