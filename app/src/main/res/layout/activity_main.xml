@@ -29,24 +29,26 @@
 
     </LinearLayout>
 
+    <!-- Botón para hacer trampa (vertical) -->
+    <Button
+        android:id="@+id/botonHacerTrampa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/boton_trampa"
+        android:layout_gravity="center_vertical|center_horizontal" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/botonAnterior"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/anterior"
-            android:contentDescription="@string/boton_anterior" />
-
-        <ImageButton
+        <!-- Botón Siguiente -->
+        <Button
             android:id="@+id/botonSiguiente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/siguiente"
-            android:contentDescription="@string/boton_siguiente" />
-    </LinearLayout>
+            android:text="@string/boton_siguiente"
+            android:drawableRight="@drawable/siguiente" />
 
+    </LinearLayout>
 </LinearLayout>

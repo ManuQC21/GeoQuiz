@@ -12,4 +12,9 @@
     <string name="toast_incorrecto">Incorrecto, Buena suerte :c</string>
     <string name="boton_siguiente">Siguiente</string>
     <string name="boton_anterior">Anterior</string>
+    <string name="boton_mostrar_respuesta">Mostrar</string>
+    <string name="boton_trampa">Trampa</string>
+    <string name="toast_juicio">USTED HIZO TRAMPA</string>
+    <string name="texto_advertencia">Esta seguro de hacer esto? </string>
+
 </resources>
