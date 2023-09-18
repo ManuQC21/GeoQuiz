@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import com.upao.geoquiz.databinding.ActivityTrampaBinding
@@ -27,6 +28,8 @@ class TrampaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setContentView(R.layout.activity_trampa)
         binding = ActivityTrampaBinding.inflate(layoutInflater)
         setContentView(binding.root)
         RespuestaesVerdadera = intent.getBooleanExtra(EXTRA_RPTA_CORRECTA, false)
@@ -38,8 +41,16 @@ class TrampaActivity : AppCompatActivity() {
             binding.respuestaTextoVista.setText(textoRpta)
             setResultPreguntaMostrada(true)
         }
-    }
 
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+
+            finish()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
     private fun setResultPreguntaMostrada(fueMostrada: Boolean) {
         val data=Intent()
         data.putExtra(EXTRA_RPTA_MOSTRADA,fueMostrada)

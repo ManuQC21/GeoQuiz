@@ -1,12 +1,8 @@
 package com.upao.geoquiz
 
 import android.app.Activity
-import android.app.Instrumentation
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -20,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         val TAG = "MainActivity"
         val KEY_INDEX_IA = "indiceActual"
     }
-
+    private var isBotonSiguienteHabilitado = true
     private lateinit var binding: ActivityMainBinding
     private val preguntaViewModel: PreguntaViewModel.PreguntaInnerViewModel by viewModels()
     var indiceActual: Int = 0
@@ -37,14 +33,24 @@ class MainActivity : AppCompatActivity() {
         binding.botonFalso.setOnClickListener{
 
         }
+        if (savedInstanceState != null) {
+            isBotonSiguienteHabilitado = savedInstanceState.getBoolean("botonSiguienteHabilitado", true)
+            binding.botonSiguiente.isEnabled = isBotonSiguienteHabilitado
+        }
         binding.botonSiguiente.setOnClickListener {
             preguntaViewModel.moverAlSiguiente()
             actualizarPregunta()
+            if (preguntaViewModel.indiceActual == preguntaViewModel.preguntas.size - 1) {
+                isBotonSiguienteHabilitado = false
+                binding.botonSiguiente.isEnabled = false
+            }
         }
         binding.botonHacerTrampa.setOnClickListener{
             val rptaCorrecta=preguntaViewModel.respuestaActual
             val intento= TrampaActivity.nuevoIntent(this,rptaCorrecta)
             iniciadorTrampa.launch(intento)
+            isBotonSiguienteHabilitado = true
+            binding.botonSiguiente.isEnabled = true
         }
         actualizarPregunta()
     }
@@ -70,6 +76,10 @@ class MainActivity : AppCompatActivity() {
         if(resultado.resultCode == Activity.RESULT_OK){
             resultado.data?.getBooleanExtra(EXTRA_RPTA_MOSTRADA,false)?:false
         }
+    }
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("botonSiguienteHabilitado", isBotonSiguienteHabilitado)
     }
 
 }
