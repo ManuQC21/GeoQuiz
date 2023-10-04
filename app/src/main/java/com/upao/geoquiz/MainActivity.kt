@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val KEY_INDEX_IA = "indiceActual"
     }
     private var isBotonSiguienteHabilitado = true
-    private lateinit var binding: ActivityMainBinding
+        private lateinit var binding: ActivityMainBinding
     private val preguntaViewModel: PreguntaViewModel.PreguntaInnerViewModel by viewModels()
     var indiceActual: Int = 0
     var hizoTrampa: Boolean = false
